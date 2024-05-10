@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+
     <title>Sistema De Cadastro</title>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
 
     <link rel="stylesheet"href="styles.css"/>
   </head>
@@ -12,7 +17,8 @@
   <body>
     <h1>Sistema De Cadastro</h1>
 
-    <form>
+    <form onsubmit="lidarComFormulario()">
+
         <label for="Nome">Nome Completo</label>
         <input id="Nome" type="text"name=""placeholder="Digite Seu Nome" />
 
@@ -33,7 +39,63 @@
 
     </form>
 
+    <script>
+      function lidarComFormulario() {
 
+        var nome= document.getElementById('Nome').value;
 
+        console.log(nome);
+
+        if(nome == ''){
+          alert('Nome não pode ser vazio');
+          return;
+        }
+
+        var CPF= document.getElementById('CPF').value;
+
+        console.log(CPF);
+
+        if(CPF == ''){
+          alert('O CPF não pode ser vazio');
+          return;
+        }
+
+        var Data_Nascimento= document.getElementById('data_Nascimento').value;
+
+        console.log(Data_Nascimento);
+
+        if(Data_Nascimento == ''){
+          alert('A data não pode ser vazio');
+          return;
+        }
+
+        var Email= document.getElementById('Email').value;
+
+        console.log(Email);
+
+        if(Email == ''){
+          alert('o email não pode ser vazio');
+          return;
+        }
+
+        var Senha= document.getElementById('Senha').value;
+
+        console.log(Senha);
+
+        if(Senha == ''){
+          alert('A senha não pode ser vazio');
+          return;
+        }
+
+        if(Senha.length < 8) {
+          alert('A senha deve conter no mínimo 8 caractere !');
+          return;
+        }
+
+        alert('Formulário enviado com sucesso!');
+
+      }
+
+    </script>
   </body>
 </html>
